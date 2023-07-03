@@ -2,6 +2,7 @@ import glob
 import os
 
 from flask import Flask, request
+from waitress import serve
 
 from generator import ExLlamaGenerator
 from model import ExLlama, ExLlamaCache, ExLlamaConfig
@@ -94,6 +95,4 @@ port = 8004
 print(f"Starting server on address {host}:{port}")
 
 if __name__ == "__main__":
-    from waitress import serve
-
     serve(app, host=host, port=port)
